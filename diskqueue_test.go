@@ -74,7 +74,7 @@ type tbLog interface {
 }
 
 func NewTestLogger(tbl tbLog) AppLogFunc {
-	return func(lvl LogLevel, f string, args ...interface{}) {
+	return func(lvl LogLevel, err error, f string, args ...interface{}) {
 		tbl.Log(fmt.Sprintf(lvl.String()+": "+f, args...))
 	}
 }
